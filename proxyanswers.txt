@@ -1,0 +1,16 @@
+VERSION="2.4"
+RHN_PARENT=<rhn_server>
+TRACEBACK_EMAIL="admin@example.com"
+USE_SSL="Y"
+CA_CHAIN="/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT"
+HTTP_PROXY=
+SSL_CNAME_ASK=''
+SSL_ORG="Example Org"
+SSL_ORGUNIT="<hostname>"
+SSL_COMMON="<hostname>"
+SSL_CITY="New York"
+SSL_STATE="New York"
+SSL_COUNTRY="US"
+SSL_EMAIL="admin@example.com"
+SSL_PASSWORD=reset
+POPULATE_CONFIG_CHANNEL="n"
