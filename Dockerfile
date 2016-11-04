@@ -1,12 +1,14 @@
-FROM fedora:22
+FROM fedora:24
 MAINTAINER "Pavel Studenik" <pstudeni@redhat.com>
 
-RUN rpm -Uvh http://yum.spacewalkproject.org/nightly/Fedora/22/x86_64/spacewalk-repo-2.4-3.fc22.noarch.rpm
+RUN URL_SW=http://yum.spacewalkproject.org/nightly/Fedora/24/x86_64/ && \
+rpm -Uvh $URL_SW/$( curl --silent $URL_SW | grep spacewalk-repo-[0-9] |  grep -Po '(?<=href=")[^"]*' )
 RUN sed s/enabled=0/enabled=1/g /etc/yum.repos.d/spacewalk-nightly.repo -i && \
     sed s/enabled=1/enabled=0/g /etc/yum.repos.d/spacewalk.repo -i
 
 RUN dnf install spacewalk-proxy-selinux spacewalk-proxy-installer \
-rhn-client-tools rhn-check rhn-setup rhnsd m2crypto wget which -y
+rhn-client-tools rhn-check rhn-setup rhnsd m2crypto wget which -y && \
+dnf clean all
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
 
