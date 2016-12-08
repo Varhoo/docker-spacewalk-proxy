@@ -10,16 +10,14 @@ RUN dnf install spacewalk-proxy-selinux spacewalk-proxy-installer \
 rhn-client-tools rhn-check rhn-setup rhnsd rhnsd hwdata python3-dbus m2crypto wget which -y && \
 dnf clean all
 
-ENV DOCKER_HOST unix:///tmp/docker.sock
-
 ADD proxyanswers.txt /root/proxyanswers.txt
-ADD rhnclient.py /root/rhnclient.py
-ADD configure.sh /root/configure.sh
-ADD run.sh /root/run.sh
+ADD bin/rhnclient.py /root/rhnclient.py
+ADD bin/configure.sh /root/configure.sh
+ADD bin/docker-entrypoint.sh /root/docker-entrypoint.sh
 
 # it needs to registered to spacewalk
-RUN chmod a+x /root/run.sh
+RUN chmod a+x /root/docker-entrypoint.sh
 
 EXPOSE 80 443 5222 5269 5280
 
-CMD /root/run.sh
+CMD /root/docker-entrypoint.sh
