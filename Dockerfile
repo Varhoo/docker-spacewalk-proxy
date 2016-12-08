@@ -7,7 +7,7 @@ RUN sed s/enabled=0/enabled=1/g /etc/yum.repos.d/spacewalk-nightly.repo -i && \
     sed s/enabled=1/enabled=0/g /etc/yum.repos.d/spacewalk.repo -i
 
 RUN dnf install spacewalk-proxy-selinux spacewalk-proxy-installer \
-rhn-client-tools rhn-check rhn-setup rhnsd m2crypto wget which -y && \
+rhn-client-tools rhn-check rhn-setup rhnsd rhnsd hwdata python3-dbus m2crypto wget which -y && \
 dnf clean all
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
