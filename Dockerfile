@@ -20,7 +20,7 @@ ADD bin/docker-entrypoint.sh /root/docker-entrypoint.sh
 
 # system needs to be to registered to Spacewalk
 RUN chmod a+x /root/docker-entrypoint.sh
-RUN chown -R squid /var/squid/cache
+RUN chown -R squid /var/spool/squid
 
 EXPOSE 80 443 5222 5269 5280
 
