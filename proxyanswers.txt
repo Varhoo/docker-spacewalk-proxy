@@ -1,4 +1,4 @@
-VERSION="2.4"
+VERSION="2.5"
 RHN_PARENT=<rhn_server>
 TRACEBACK_EMAIL="admin@example.com"
 USE_SSL="Y"

@@ -14,7 +14,7 @@ mkdir -p /root/ssl-build
 sed s/"<hostname>"/$HOSTNAME/g $ANSWERFILE -i
 sed s/"<rhn_server>"/$RHN_SERVER/g $ANSWERFILE -i
 
-rhnreg_ks --username=$RHN_USER --password=$RHN_PASS --serverUrl=https://$RHN_SERVER/XMLRPC --sslCACert=/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT --profilename=client  --force
+rhnreg_ks --username=$RHN_USER --password=$RHN_PASS --serverUrl=https://$RHN_SERVER/XMLRPC --sslCACert=/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT  --force
 
 if rhn_check -vv; then
     SYSTEM_ID=$( xsltproc /usr/share/rhn/get_system_id.xslt /etc/sysconfig/rhn/systemid | sed s/ID-//g )
