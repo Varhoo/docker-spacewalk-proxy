@@ -1,7 +1,8 @@
 # Spacewalk Proxy in Docker
 
-Information about application is available on https://fedorahosted.org/spacewalk/wiki/proxy
-This images is created from official wiki page https://fedorahosted.org/spacewalk/wiki/HowToInstallProxy25
+Information about application is available on https://fedorahosted.org/spacewalk/wiki/proxy.
+
+This images is created from official wiki page https://fedorahosted.org/spacewalk/wiki/HowToInstallProxy25.
 
 ## 
 build:
