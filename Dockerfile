@@ -7,7 +7,7 @@ RUN sed s/enabled=0/enabled=1/g /etc/yum.repos.d/spacewalk-nightly.repo -i && \
     sed s/enabled=1/enabled=0/g /etc/yum.repos.d/spacewalk.repo -i
 
 RUN dnf update -y && \
-    dnf install spacewalk-proxy-selinux spacewalk-proxy-installer \
+    dnf install spacewalk-proxy-selinux spacewalk-proxy-installer spacewalk-proxy-management \
         rhn-client-tools rhn-check rhn-setup rhnsd hwdata python3-dbus m2crypto wget which -y && \
     dnf clean all
 
@@ -20,7 +20,8 @@ ADD bin/docker-entrypoint.sh /root/docker-entrypoint.sh
 
 # system needs to be to registered to Spacewalk
 RUN chmod a+x /root/docker-entrypoint.sh
-RUN chown -R squid /var/spool/squid
+RUN chown -R squid. /var/spool/squid
+RUN chown -R apache. /var/spool/rhn-proxy/
 
 EXPOSE 80 443 5222 5269 5280
 
